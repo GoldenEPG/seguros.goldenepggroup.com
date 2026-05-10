@@ -86,6 +86,48 @@
 </url>
 
 <url>
+  <loc>https://seguros.goldenepggroup.com/aseguranza/</loc>
+  <lastmod>2026-05-10</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.95</priority>
+</url>
+
+<url>
+  <loc>https://seguros.goldenepggroup.com/general-liability-insurance/</loc>
+  <lastmod>2026-05-10</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.90</priority>
+</url>
+
+<url>
+  <loc>https://seguros.goldenepggroup.com/business-liability-insurance/</loc>
+  <lastmod>2026-05-10</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.88</priority>
+</url>
+
+<url>
+  <loc>https://seguros.goldenepggroup.com/liability-coverage/</loc>
+  <lastmod>2026-05-10</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+
+<url>
+  <loc>https://seguros.goldenepggroup.com/vision-insurance/</loc>
+  <lastmod>2026-05-10</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.82</priority>
+</url>
+
+<url>
+  <loc>https://seguros.goldenepggroup.com/testamentos-y-fideicomisos/</loc>
+  <lastmod>2026-05-10</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+  
+<url>
   <loc>https://seguros.goldenepggroup.com/liability-insurance/</loc>
   <lastmod>2026-04-26</lastmod>
   <changefreq>weekly</changefreq>
@@ -140,5 +182,7 @@
   <changefreq>monthly</changefreq>
   <priority>0.85</priority>
 </url>
+
+
   
 </urlset>
