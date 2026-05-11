@@ -156,33 +156,16 @@
         gap:12px;
         margin-bottom:14px;
       }
-      .mobile-fixed-brand .brand-mark{
-        width:58px;
-        height:58px;
-        flex:0 0 58px;
+      .mobile-fixed-card .brand-mark{
+        width:76px;
+        height:76px;
+        flex:0 0 76px;
       }
-      .mobile-fixed-brand .logo-main{
-        width:56px;
-        height:auto;
+      .mobile-fixed-card .brand-mark img,
+      .mobile-fixed-card .logo-main{
+        width:70px;
       }
-      .mobile-fixed-brand strong{
-        display:block;
-        color:var(--navy-2);
-        font-size:16px;
-        line-height:1.1;
-        font-weight:900;
-      }
-      .mobile-fixed-brand span{
-        display:block;
-        color:var(--muted);
-        font-size:12px;
-        font-weight:800;
-        margin-top:2px;
-      }
-      .mobile-fixed-actions{
-        display:grid;
-        gap:12px;
-      }
+      .mobile-fixed-actions{display:grid;gap:12px}
       .mobile-fixed-actions a,
       .mobile-fixed-actions button{
         width:100%;
@@ -192,7 +175,6 @@
         display:flex;
         align-items:center;
         justify-content:center;
-        text-align:center;
       }
       .mobile-call-btn{
         background:#fff;
@@ -216,11 +198,11 @@
   <div class="mobile-fixed-card" id="mobileFixedCard">
     <div class="mobile-fixed-brand">
       <div class="brand-mark"><img class="logo-main" src="/assets/Lux_Golden_EPG_Logo2026.png" alt="Golden EPG Group Logo"></div>
-      <div><strong>Golden EPG Group</strong><br><span>Aseguranza Comercial y Personal</span></div>
+      <div><strong>Golden EPG Group</strong><br><span>Aseguranza en Houston</span></div>
     </div>
     <div class="mobile-fixed-actions">
       <a class="mobile-call-btn" href="tel:+17135305543">Llamar Ahora</a>
-      <button class="mobile-quote-btn" type="button" data-open-quote>Cotizar ahora</button>
+      <button class="mobile-quote-btn" type="button" data-open-quote>Cotizar Aseguranza</button>
     </div>
   </div>
   <div class="modal-backdrop" id="quoteModal" aria-hidden="true">
@@ -425,7 +407,7 @@
       const countObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting&&!entry.target.classList.contains('counted')){entry.target.classList.add('counted');animateCountUp(entry.target);countObserver.unobserve(entry.target)}})},{threshold:.35});$$('.count-up').forEach(counter=>countObserver.observe(counter));
       const commercialOptions=['General Liability','BOP','Commercial Auto','Commercial Property','Workers Comp','Commercial Cyber','Umbrella','Bond','Professional Liability','Excess Liability'];
       const personalOptions=['Homeowners','Condo','Renters','Mobile Home','Auto','Flood','Pet','Boat'];
-      const modal=$('#quoteModal'),entryStep=$('#entryStep'),formStep=$('#formStep'),formTitle=$('#formTitle'),popupCoverageType=$('#popupCoverageType'),closeModalBtn=$('#closeModalBtn'),mobileFixedCard=$('#mobileFixedCard');let mobileCardEligible=true;
+      const modal=$('#quoteModal'),entryStep=$('#entryStep'),formStep=$('#formStep'),formTitle=$('#formTitle'),popupCoverageType=$('#popupCoverageType'),closeModalBtn=$('#closeModalBtn'),mobileFixedCard=$('#mobileFixedCard');let mobileCardEligible=false;
       function fillSelect(list){popupCoverageType.innerHTML='<option value="">Selecciona el tipo de seguro</option>'+list.map(item=>`<option value="${item}">${item}</option>`).join('')}
       function isMobile(){return window.matchMedia('(max-width:840px)').matches}
       function updateMobileFixedCard(){if(!mobileFixedCard)return;const shouldShow=isMobile()&&mobileCardEligible&&!modal.classList.contains('active');mobileFixedCard.classList.toggle('show',shouldShow);document.body.classList.toggle('has-mobile-fixed',shouldShow)}
