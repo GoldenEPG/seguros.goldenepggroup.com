@@ -675,10 +675,10 @@
           <a href="https://goldenepggroup.com/obamacare-houston">Obamacare Houston</a>
           <a href="https://goldenepggroup.com/seguros-dentales">Seguros Dentales</a>
           <a href="https://goldenepggroup.com/life-insurance-houston">Life Insurance Houston</a>
-          <a href="https://goldenepggroup.com/auto-home-commercial">Seguro de Auto</a>
-          <a href="https://goldenepggroup.com/auto-home-commercial">Aseguranza de Casa</a>
-          <a href="https://goldenepggroup.com/auto-home-commercial">Seguro Comercial</a>
-          <a href="https://goldenepggroup.com/auto-home-commercial">General Liability</a>
+          <a href="https://seguros.goldenepggroup.com/aseguranza">Seguro de Auto</a>
+          <a href="https://seguros.goldenepggroup.com/aseguranza">Aseguranza de Casa</a>
+          <a href="https://seguros.goldenepggroup.com/aseguranza">Seguro Comercial</a>
+          <a href="https://seguros.goldenepggroup.com/aseguranza">General Liability</a>
           <a href="https://goldenepggroup.com/insurance-agency-houston">Insurance Quotes</a>
         </div>
       </div>
@@ -758,7 +758,7 @@
         <details class="reveal" open><summary>¿Pueden ayudarme en español?</summary><p>Sí. Ofrecemos asesoría bilingüe en español e inglés para Medicare, Obamacare, seguros de vida, anualidades y retiro.</p></details>
         <details class="reveal delay-1"><summary>¿Qué opciones de vida pueden revisar?</summary><p>Podemos revisar Term Life, Whole Life, IUL y opciones de protección familiar según tus objetivos y elegibilidad.</p></details>
         <details class="reveal delay-2"><summary>¿También ayudan con ACA / Obamacare?</summary><p>Sí. Podemos revisar opciones del Marketplace, subsidios cuando aplican, deducibles, copagos y redes médicas.</p></details>
-        <details class="reveal delay-3"><summary>¿Qué pasa si necesito Auto, Home o Commercial?</summary><p>Si necesitas seguros de auto, casa o comerciales, puedes ir directamente a <a href="https://goldenepggroup.com/auto-home-commercial" style="color:#003366;font-weight:800;">Auto, Home & Commercial</a>.</p></details>
+        <details class="reveal delay-3"><summary>¿Qué pasa si necesito Auto, Home o Commercial?</summary><p>Si necesitas seguros de auto, casa o comerciales, puedes ir directamente a <a href="https://seguros.goldenepggroup.com/aseguranza" style="color:#003366;font-weight:800;">Auto, Home & Commercial</a>.</p></details>
       </div>
     </div>
   </section>
@@ -792,10 +792,10 @@
         <div>
           <h4>Más Soluciones</h4>
           <a href="https://goldenepggroup.com/">Página Principal</a>
-          <a href="https://goldenepggroup.com/auto-home-commercial">Auto, Home & Commercial</a>
-          <a href="https://goldenepggroup.com/auto-home-commercial">Seguro de Auto</a>
-          <a href="https://goldenepggroup.com/auto-home-commercial">Seguro Comercial</a>
-          <a href="https://goldenepggroup.com/insurance-agency-houston">Insurance Quotes</a>
+          <a href="https://seguros.goldenepggroup.com/aseguranza">Auto, Home & Commercial</a>
+          <a href="https://seguros.goldenepggroup.com/aseguranza">Seguro de Auto</a>
+          <a href="https://seguros.goldenepggroup.com/aseguranza">Seguro Comercial</a>
+          <a href="https://goldenepggroup.com/insurance-agency-houston">Life and Health Quotes</a>
         </div>
 
         <div>
@@ -913,7 +913,7 @@ Golden EPG Group LLC is not affiliated with or endorsed by the U.S. government, 
       });
 
       document.getElementById('autoCommercialOption').addEventListener('click',function(){
-        window.location.href='https://goldenepggroup.com/auto-home-commercial';
+        window.location.href='https://seguros.goldenepggroup.com/aseguranza';
       });
 
       document.querySelectorAll('.life-choice').forEach(option=>{
@@ -1083,7 +1083,7 @@ Golden EPG Group LLC is not affiliated with or endorsed by the U.S. government, 
         addOptions([
           {label:'Llamar ahora',action:()=>window.location.href='tel:7136379220'},
           {label:'Cotizar en la página',action:()=>{document.querySelector('[data-open-quote]').click();gigiPanel.classList.remove('show')}},
-          {label:'Auto, Home & Commercial',action:()=>window.location.href='https://goldenepggroup.com/auto-home-commercial'}
+          {label:'Auto, Home & Commercial',action:()=>window.location.href='seguros.goldenepggroup.com/aseguranza'}
         ]);
       }
 
@@ -1095,7 +1095,7 @@ Golden EPG Group LLC is not affiliated with or endorsed by the U.S. government, 
           {label:'ACA / Obamacare',action:()=>{addMessage('Perfecto. Podemos revisar planes ACA, subsidios y opciones médicas.');pushCalendly()}},
           {label:'Life Insurance',action:()=>{addMessage('Buena decisión. Podemos revisar Term Life, Whole Life e IUL.');pushCalendly()}},
           {label:'Retiro / Anualidades',action:()=>{addMessage('Podemos revisar anualidades y estrategias de ingreso para retiro.');pushCalendly()}},
-          {label:'Auto, Home & Commercial',action:()=>window.location.href='https://goldenepggroup.com/auto-home-commercial'}
+          {label:'Auto, Home & Commercial',action:()=>window.location.href='https://seguros.goldenepggroup.com/aseguranza'}
         ]);
       }
 
@@ -1120,7 +1120,7 @@ Golden EPG Group LLC is not affiliated with or endorsed by the U.S. government, 
         const lower=text.toLowerCase();
         if(lower.includes('auto')||lower.includes('casa')||lower.includes('home')||lower.includes('commercial')||lower.includes('comercial')){
           addMessage('Para Auto, Home & Commercial te llevo a la página correcta.');
-          setTimeout(()=>window.location.href='https://goldenepggroup.com/auto-home-commercial',800);
+          setTimeout(()=>window.location.href='https://seguros.goldenepggroup.com/aseguranza',800);
         }else{
           pushCalendly();
         }
