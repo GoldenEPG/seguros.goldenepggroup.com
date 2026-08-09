@@ -70,6 +70,13 @@
   <changefreq>weekly</changefreq>
   <priority>0.88</priority>
 </url>
+
+<url>
+  <loc>https://seguros.goldenepggroup.com/seguro-iul/</loc>
+  <lastmod>2026-08-09</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.86</priority>
+</url>
   
 <url>
   <loc>https://seguros.goldenepggroup.com/seguros-de-salud/</loc>
