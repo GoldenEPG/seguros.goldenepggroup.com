@@ -121,15 +121,15 @@
 <body>
   <div class="modal-backdrop active" id="quoteModal" aria-hidden="false">
     <div class="modal">
-      <div class="modal-header"><h3>¿Quieres revisar seguro IUL?</h3><button class="modal-close" id="closeModalBtn" aria-label="Cerrar" style="display:none;">×</button></div>
+      <div class="modal-header"><h3>¿Quieres revisar un Seguro IUL?</h3><button class="modal-close" id="closeModalBtn" aria-label="Cerrar" style="display:none;">×</button></div>
       <div class="modal-body">
         <div id="entryStep">
-          <p class="modal-subtitle">Selecciona tu objetivo principal para empezar. Un agente bilingüe puede ayudarte a revisar opciones disponibles.</p>
+          <p class="modal-subtitle">Selecciona qué quieres revisar del IUL. Un agente bilingüe puede explicarte beneficios, cargos, límites y diseño de la póliza.</p>
           <div class="quote-options">
-            <button class="quote-option life-choice" data-type="Seguro para funeral" type="button"><div class="premium-icon"><svg viewBox="0 0 24 24"><path d="M8 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"></path><path d="M16 14a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"></path></svg></div><strong>Proteger familia</strong><span>Ingresos, hijos y tranquilidad</span></button>
-            <button class="quote-option life-choice" data-type="Seguro para funeral" type="button"><div class="premium-icon"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"></path><path d="M5 10v11h14V10"></path></svg></div><strong>Protección de vida</strong><span>Protección para costos finales</span></button>
-            <button class="quote-option life-choice" data-type="Seguro temporal Protección de vida o cremación" type="button"><div class="premium-icon"><svg viewBox="0 0 24 24"><path d="M12 6v6l4 2"></path><path d="M21 12a9 9 0 1 1-9-9"></path></svg></div><strong>Protección de vida o cremación</strong><span>Comparar opciones disponibles</span></button>
-            <button class="quote-option life-choice" data-type="Comparar IUL" type="button"><div class="premium-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5h16"></path><path d="M7 16.5V10"></path><path d="M12 16.5V6"></path><path d="M17 16.5V12"></path></svg></div><strong>Comparar opciones</strong><span>Revisión con agente licenciado</span></button>
+            <button class="quote-option life-choice" data-type="Protección de vida con IUL" type="button"><div class="premium-icon"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.4 8.3-8 9-4.6-.7-8-4-8-9V7l8-4Z"></path></svg></div><strong>Protección de vida</strong><span>Beneficio para tus beneficiarios</span></button>
+            <button class="quote-option life-choice" data-type="Potencial de acumulación IUL" type="button"><div class="premium-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5h16"></path><path d="M7 16.5V10"></path><path d="M12 16.5V6"></path><path d="M17 16.5V12"></path></svg></div><strong>Potencial de acumulación</strong><span>Valor en efectivo e índices</span></button>
+            <button class="quote-option life-choice" data-type="Costos cargos y límites del IUL" type="button"><div class="premium-icon"><svg viewBox="0 0 24 24"><path d="M6 20V5h12v15"></path><path d="M9 9h6"></path><path d="M9 13h6"></path></svg></div><strong>Costos y diseño</strong><span>Cargos, cap, floor y límites</span></button>
+            <button class="quote-option life-choice" data-type="Préstamos y retiros del IUL" type="button"><div class="premium-icon"><svg viewBox="0 0 24 24"><path d="M12 3c4.97 0 9 4.03 9 9"></path><path d="M12 3a9 9 0 0 0 0 18"></path><path d="M3 12h18"></path></svg></div><strong>Préstamos y retiros</strong><span>Reglas, riesgos y condiciones</span></button>
           </div>
         </div>
         <div class="modal-form" id="formStep">
@@ -150,7 +150,7 @@
 
   <div class="topbar">
     <div class="container topbar-inner">
-      <div class="topbar-left"><span>Seguro IUL en Houston • Indexed Universal Life • 10, Protección de vida o cremación según disponibilidad</span></div>
+      <div class="topbar-left"><span>Seguro IUL en Houston • Indexed Universal Life • 10, Potencial de acumulación según disponibilidad</span></div>
       <div class="topbar-right"><a href="tel:7136379220">713-637-9220</a><a href="mailto:hello@goldenepggroup.com">hello@goldenepggroup.com</a></div>
     </div>
   </div>
@@ -205,7 +205,7 @@
               <div class="field"><label for="heroName">Nombre completo</label><input id="heroName" name="fullname" type="text" placeholder="Tu nombre" required></div>
               <div class="field"><label for="heroPhone">Teléfono</label><input id="heroPhone" name="phone" type="tel" placeholder="(000) 000-0000" required></div>
               <div class="field"><label for="heroZip">ZIP Code</label><input id="heroZip" name="zip" type="text" placeholder="ZIP code" required></div>
-              <div class="field"><label for="heroType">Objetivo</label><select id="heroType" name="coverage_type" required><option value="">Selecciona una opción</option><option>Proteger familia</option><option>Proteger funeral</option><option>Revisar cremación</option><option>Revisar entierro</option><option>Seguro para adulto mayor</option></select></div>
+              <div class="field"><label for="heroType">Objetivo</label><select id="heroType" name="coverage_type" required><option value="">Selecciona una opción</option><option>Protección de vida</option><option>Proteger funeral</option><option>Revisar cremación</option><option>Revisar entierro</option><option>Seguro para adulto mayor</option></select></div>
               <div class="field full"><label for="heroMessage">Mensaje</label><textarea id="heroMessage" name="message" placeholder="Cuéntanos qué necesitas proteger"></textarea></div>
             </div>
             <button class="btn btn-dark" type="submit" style="width:100%;margin-top:14px;">Enviar solicitud</button>
@@ -439,7 +439,7 @@
       function addHtmlMessage(html){const div=document.createElement('div');div.className='gigi-msg bot';div.innerHTML=html;gigiBody.appendChild(div);gigiBody.scrollTop=gigiBody.scrollHeight}
       function addOptions(options){const wrap=document.createElement('div');wrap.className='gigi-options';options.forEach(opt=>{const btn=document.createElement('button');btn.type='button';btn.className='gigi-option';btn.textContent=opt.label;btn.addEventListener('click',function(){addMessage(opt.label,'user');opt.action()});wrap.appendChild(btn)});gigiBody.appendChild(wrap);gigiBody.scrollTop=gigiBody.scrollHeight}
       function pushCalendly(){addHtmlMessage(`<div><p style="margin:0 0 10px 0;">Podemos revisar opciones de IUL con información real. Agenda una llamada o llama ahora.</p><a href="${calendlyUrl}" target="_blank" rel="noopener" class="gigi-calendly-btn">Agendar llamada</a></div>`);addOptions([{label:'Llamar ahora',action:()=>window.location.href='tel:7136379220'},{label:'Cotizar en la página',action:()=>{document.querySelector('[data-open-quote]').click();gigiPanel.classList.remove('show')}},{label:'Seguros de Vida',action:()=>window.location.href='/seguros-de-vida/'}])}
-      function resetChat(){gigiBody.innerHTML='';addMessage('Hola, soy Gigi 👋 ¿Qué quieres proteger con IUL?');addOptions([{label:'Mi familia',action:()=>{addMessage('Perfecto. El IUL puede ayudar a proteger ingresos y estabilidad familiar por años clave.');pushCalendly()}},{label:'Mi funeral',action:()=>{addMessage('Muchas personas revisan IUL para cubrir años de funeral o deudas grandes.');pushCalendly()}},{label:'Protección de vida o cremación',action:()=>{addMessage('Podemos revisar términos disponibles según tu edad, salud, presupuesto y elegibilidad.');pushCalendly()}},{label:'Comparar costo',action:()=>{addMessage('Podemos comparar opciones disponibles sin garantizar prima hasta revisar datos y underwriting.');pushCalendly()}}])}
+      function resetChat(){gigiBody.innerHTML='';addMessage('Hola, soy Gigi 👋 ¿Qué quieres proteger con IUL?');addOptions([{label:'Mi familia',action:()=>{addMessage('Perfecto. El IUL puede ayudar a proteger ingresos y estabilidad familiar por años clave.');pushCalendly()}},{label:'Mi funeral',action:()=>{addMessage('Muchas personas revisan IUL para cubrir años de funeral o deudas grandes.');pushCalendly()}},{label:'Potencial de acumulación',action:()=>{addMessage('Podemos revisar términos disponibles según tu edad, salud, presupuesto y elegibilidad.');pushCalendly()}},{label:'Comparar costo',action:()=>{addMessage('Podemos comparar opciones disponibles sin garantizar prima hasta revisar datos y underwriting.');pushCalendly()}}])}
       function openGigi(){if(!gigiShownOnce){resetChat();gigiShownOnce=true}gigiPanel.classList.add('show');gigiPanel.setAttribute('aria-hidden','false')}
       function closeGigi(){gigiPanel.classList.remove('show');gigiPanel.setAttribute('aria-hidden','true')}
       gigiLauncher.addEventListener('click',openGigi);gigiClose.addEventListener('click',closeGigi);gigiSend.addEventListener('click',function(){const text=gigiInput.value.trim();if(!text)return;addMessage(text,'user');gigiInput.value='';pushCalendly()});gigiInput.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();gigiSend.click()}});
