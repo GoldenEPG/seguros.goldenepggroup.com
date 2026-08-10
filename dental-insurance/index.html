@@ -185,38 +185,47 @@
     .modal-header{z-index:2}
     .modal-close{position:relative;z-index:5;pointer-events:auto}
 
-  </style>
+  
+/* Dental selector compatibility with seguros-medicos premium style */
+.premium-quote-options{max-width:820px;margin:0 auto}
+.premium-quote-option{min-height:172px}
+@media(max-width:840px){
+  .quote-options,.premium-quote-options{grid-template-columns:1fr!important}
+}
+
+</style>
 </head>
 
 <body>
   <div class="mobile-fixed-card" id="mobileFixedCard"><div class="mobile-fixed-brand"><div class="brand-mark"><img class="logo-main" src="/assets/Lux_Golden_EPG_Logo2026.png" alt="Golden EPG Group Logo"></div><div><strong>Golden EPG Group</strong><br><span>Dental Insurance</span></div></div><div class="mobile-fixed-actions"><a class="mobile-call-btn" href="tel:+17136379220">Llamar Ahora</a><button class="mobile-quote-btn" type="button" data-open-quote>Cotizar</button></div></div>
 
   <div class="modal-backdrop active" id="quoteModal" aria-hidden="false"><div class="modal"><div class="modal-header"><h3>Selecciona una cobertura</h3><button class="modal-close" id="closeModalBtn" aria-label="Cerrar" style="display:none;">×</button></div><div class="modal-body">
+
 <div id="entryStep">
   <p class="modal-subtitle">Selecciona el tipo de cobertura que deseas revisar</p>
-  <div class="quote-options">
-    <button class="quote-option" data-type="Life Insurance" type="button">
+  <div class="quote-options premium-quote-options">
+    <button class="quote-option premium-quote-option" data-type="Life Insurance" type="button">
       <div class="premium-icon">
         <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 5a5.5 5.5 0 0 1 9.5 7c-2.5 4.5-9.5 9-9.5 9z"></path></svg>
       </div>
       <strong>Life</strong>
       <span>Seguro de vida y protección familiar</span>
     </button>
-    <button class="quote-option" data-type="Health Insurance" type="button">
+    <button class="quote-option premium-quote-option" data-type="Health Insurance" type="button">
       <div class="premium-icon">
         <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12h6"></path><path d="M12 9v6"></path></svg>
       </div>
       <strong>Health</strong>
       <span>ACA, Obamacare y Medicare si eres elegible</span>
     </button>
-    <button class="quote-option" data-type="Dental Insurance" type="button">
+    <button class="quote-option premium-quote-option" data-type="Dental Insurance" type="button">
       <div class="premium-icon">
         <svg viewBox="0 0 24 24"><path d="M7 3c-2.2 0-4 1.8-4 4 0 4.5 3 13 5 13 1.2 0 1-5 4-5s2.8 5 4 5c2 0 5-8.5 5-13 0-2.2-1.8-4-4-4-2 0-3 1-5 1S9 3 7 3z"></path></svg>
       </div>
       <strong>Dental</strong>
       <span>Limpiezas, servicios dentales y opciones familiares</span>
     </button>
-    <button class="quote-option" data-type="Auto - Home - Commercial" type="button" data-redirect="https://seguros.goldenepggroup.com/aseguranza/">
+    <button class="quote-option premium-quote-option" data-type="Auto - Home - Commercial" type="button" data-redirect="https://seguros.goldenepggroup.com/aseguranza/">
       <div class="premium-icon">
         <svg viewBox="0 0 24 24"><path d="M3 13l2-5h14l2 5"></path><path d="M5 13h14v6H5z"></path><circle cx="7.5" cy="19" r="1.5"></circle><circle cx="16.5" cy="19" r="1.5"></circle></svg>
       </div>
@@ -344,5 +353,34 @@
   <script>
     document.addEventListener('DOMContentLoaded',function(){const gigiLauncher=document.getElementById('gigiLauncher'),gigiPanel=document.getElementById('gigiPanel'),gigiClose=document.getElementById('gigiClose'),gigiBody=document.getElementById('gigiBody'),gigiInput=document.getElementById('gigiInput'),gigiSend=document.getElementById('gigiSend'),quoteModal=document.getElementById('quoteModal');const calendlyUrl='https://calendly.com/myphinsurance/30min';let gigiShownOnce=false;function addMessage(text,type='bot'){const div=document.createElement('div');div.className=`gigi-msg ${type}`;div.textContent=text;gigiBody.appendChild(div);gigiBody.scrollTop=gigiBody.scrollHeight}function addHtmlMessage(html){const div=document.createElement('div');div.className='gigi-msg bot';div.innerHTML=html;gigiBody.appendChild(div);gigiBody.scrollTop=gigiBody.scrollHeight}function addOptions(options){const wrap=document.createElement('div');wrap.className='gigi-options';options.forEach(opt=>{const btn=document.createElement('button');btn.type='button';btn.className='gigi-option';btn.textContent=opt.label;btn.addEventListener('click',function(){addMessage(opt.label,'user');opt.action()});wrap.appendChild(btn)});gigiBody.appendChild(wrap);gigiBody.scrollTop=gigiBody.scrollHeight}function pushCalendly(){addHtmlMessage(`<div><p style="margin:0 0 10px 0;">Podemos revisar tus opciones con información real. Agenda una llamada o llama ahora.</p><a href="${calendlyUrl}" target="_blank" rel="noopener" class="gigi-calendly-btn">Agendar llamada</a></div>`);addOptions([{label:'Llamar ahora',action:()=>window.location.href='tel:7136379220'},{label:'Cotizar en la página',action:()=>{document.querySelector('[data-open-quote]').click();gigiPanel.classList.remove('show')}},{label:'Auto, Home & Commercial',action:()=>window.location.href='https://seguros.goldenepggroup.com/aseguranza/'}])}function resetChat(){gigiBody.innerHTML='';addMessage('Hola, soy Gigi 👋 ¿Qué área de seguro médico quieres revisar?');addOptions([{label:'Dental Insurance • Seguro Dental',action:()=>{addMessage('Perfecto. Podemos revisar planes ACA, subsidios y opciones médicas.');pushCalendly()}},{label:'Medicare',action:()=>{addMessage('Excelente. Podemos revisar Medicare, beneficios, doctores y medicamentos.');pushCalendly()}},{label:'Dental',action:()=>{addMessage('Podemos revisar opciones dentales individuales o familiares.');pushCalendly()}},{label:'Auto, Home & Commercial',action:()=>window.location.href='https://seguros.goldenepggroup.com/aseguranza/'}])}function openGigi(){if(!gigiShownOnce){resetChat();gigiShownOnce=true}gigiPanel.classList.add('show');gigiPanel.setAttribute('aria-hidden','false')}function closeGigi(){gigiPanel.classList.remove('show');gigiPanel.setAttribute('aria-hidden','true')}gigiLauncher.addEventListener('click',openGigi);gigiClose.addEventListener('click',closeGigi);gigiSend.addEventListener('click',function(){const text=gigiInput.value.trim();if(!text)return;addMessage(text,'user');gigiInput.value='';const lower=text.toLowerCase();if(lower.includes('auto')||lower.includes('casa')||lower.includes('home')||lower.includes('commercial')||lower.includes('comercial')){addMessage('Para Auto, Home & Commercial te llevo a la página correcta.');setTimeout(()=>window.location.href='https://seguros.goldenepggroup.com/aseguranza/',800)}else{pushCalendly()}});gigiInput.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();gigiSend.click()}});function startGigiWhenAllowed(){if(!quoteModal||!quoteModal.classList.contains('active')){setTimeout(()=>gigiLauncher.classList.add('show'),20000);setTimeout(()=>{gigiLauncher.classList.add('show');if(!gigiPanel.classList.contains('show'))openGigi()},25000)}else setTimeout(startGigiWhenAllowed,2000)}startGigiWhenAllowed()});
   </script>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('#entryStep .quote-option').forEach(function(option){
+    option.addEventListener('click',function(event){
+      event.preventDefault();
+      event.stopPropagation();
+      var redirectUrl = option.getAttribute('data-redirect');
+      if(redirectUrl){
+        window.location.href = redirectUrl;
+        return;
+      }
+      var modal = document.getElementById('quoteModal');
+      var entryStep = document.getElementById('entryStep');
+      var formStep = document.getElementById('formStep');
+      var popupType = document.getElementById('popupType');
+      if(popupType) popupType.value = option.getAttribute('data-type') || '';
+      if(modal){
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden','false');
+      }
+      if(entryStep) entryStep.style.display='none';
+      if(formStep) formStep.classList.add('active');
+      document.body.classList.add('no-scroll');
+    }, true);
+  });
+});
+</script>
+
 </body>
 </html>
