@@ -302,6 +302,84 @@
   .quote-option span{font-size:10.8px}
 }
 
+
+/* Mobile floating call/quote banner */
+@media(max-width:840px){
+  .mobile-fixed-card{
+    position:fixed;
+    left:12px;
+    right:12px;
+    top:12px;
+    z-index:80;
+    background:#fff;
+    border:1px solid #dfe8f2;
+    border-radius:22px;
+    box-shadow:0 16px 32px rgba(0,0,0,.18);
+    padding:14px;
+    display:none;
+  }
+  .mobile-fixed-card.show{display:block}
+  .mobile-fixed-brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:14px;
+  }
+  .mobile-fixed-brand .brand-mark{
+    width:58px;
+    height:58px;
+  }
+  .mobile-fixed-brand .brand-mark img,
+  .mobile-fixed-brand .logo-main{
+    width:56px;
+    height:auto;
+  }
+  .mobile-fixed-brand strong{
+    color:var(--navy-2);
+    font-size:17px;
+    line-height:1.1;
+  }
+  .mobile-fixed-brand span{
+    color:var(--muted);
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+  .mobile-fixed-actions{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+  .mobile-fixed-actions a,
+  .mobile-fixed-actions button{
+    width:100%;
+    min-height:46px;
+    border-radius:999px;
+    font-weight:900;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+  }
+  .mobile-call-btn{
+    background:#fff;
+    color:var(--navy-2);
+    border:1px solid #d8dde8;
+  }
+  .mobile-quote-btn{
+    background:linear-gradient(135deg,var(--gold),var(--gold-2));
+    color:var(--navy-2);
+    border:1px solid transparent;
+  }
+  body.has-mobile-fixed{
+    padding-top:150px;
+  }
+  body.no-scroll.has-mobile-fixed{
+    padding-top:0;
+  }
+}
+
 </style>
 <script type="application/ld+json">
 {
@@ -418,6 +496,16 @@
 </head>
 
 <body>
+  <div class="mobile-fixed-card" id="mobileFixedCard">
+  <div class="mobile-fixed-brand">
+    <div class="brand-mark"><img class="logo-main" src="/assets/Lux_Golden_EPG_Logo2026.png" alt="Golden EPG Group Logo"></div>
+    <div><strong>Golden EPG Group</strong><br><span>Life Insurance</span></div>
+  </div>
+  <div class="mobile-fixed-actions">
+    <a class="mobile-call-btn" href="tel:+17136379220">Llamar Ahora</a>
+    <button class="mobile-quote-btn" type="button" data-open-quote>Cotizar</button>
+  </div>
+</div>
   <div class="modal-backdrop active" id="quoteModal" aria-hidden="false"><div class="modal"><div class="modal-header"><h3>Elige tu cobertura</h3><button class="modal-close" id="closeModalBtn" aria-label="Cerrar" style="display:none;">×</button></div><div class="modal-body"><div id="entryStep"><p class="modal-subtitle">Selecciona una opción para empezar tu revisión con un agente bilingüe.</p><div class="quote-options four"><button class="quote-option life-choice" data-type="Life Insurance" type="button"><div class="premium-icon"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 5a5.5 5.5 0 0 1 9.5 7c-2.5 4.5-9.5 9-9.5 9z"></path></svg></div><strong>Life Insurance</strong><span>Protección familiar y cobertura de vida</span></button><button class="quote-option life-choice" data-type="Term Life Insurance" type="button"><div class="premium-icon"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5z"></path><path d="M8 8h8"></path><path d="M8 12h8"></path><path d="M8 16h5"></path></svg></div><strong>Term Life</strong><span>Seguro temporal por años específicos</span></button><button class="quote-option life-choice" data-type="Final Expense Insurance" type="button"><div class="premium-icon"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.4 8.3-8 9-4.6-.7-8-4-8-9V7l8-4Z"></path><path d="M9 12l2 2 4-5"></path></svg></div><strong>Final Expense</strong><span>Gastos finales, funeral o entierro</span></button><button class="quote-option life-choice" data-type="Indexed Universal Life / IUL" type="button"><div class="premium-icon"><svg viewBox="0 0 24 24"><path d="M4 19V5"></path><path d="M4 19h16"></path><path d="M7 15l4-4 3 3 5-7"></path></svg></div><strong>IUL</strong><span>Seguro indexado con reglas y cargos</span></button></div></div><div class="modal-form" id="formStep"><p class="modal-subtitle">Completa esta forma rápida y un agente bilingüe te contactará. Enviar tus datos no garantiza aprobación, cobertura, prima, beneficios ni elegibilidad.</p><form id="popupLeadForm"><div class="hero-form-grid"><div class="field full"><label for="popupName">Nombre completo</label><input id="popupName" name="fullname" type="text" placeholder="Tu nombre completo" required></div><div class="field"><label for="popupPhone">Teléfono</label><input id="popupPhone" name="phone" type="tel" placeholder="(000) 000-0000" required></div><div class="field"><label for="popupZip">ZIP Code</label><input id="popupZip" name="zip" type="text" placeholder="ZIP code" required></div><div class="field full"><label for="popupType">Tipo de cobertura</label><input id="popupType" name="coverage_type" type="text" readonly></div></div><button class="btn btn-dark" type="submit" style="width:100%;margin-top:14px;">Enviar solicitud</button></form></div></div></div></div>
 
   <div class="topbar">
@@ -824,6 +912,57 @@ document.addEventListener('DOMContentLoaded',function(){
   });
 
   showInitialModal();
+});
+</script>
+
+
+<script id="mobile-fixed-banner-handler">
+document.addEventListener('DOMContentLoaded',function(){
+  var mobileFixedCard=document.getElementById('mobileFixedCard');
+  var modal=document.getElementById('quoteModal');
+
+  function isMobile(){
+    return window.matchMedia('(max-width:840px)').matches;
+  }
+
+  function updateMobileBanner(){
+    if(!mobileFixedCard) return;
+    var modalOpen = modal && modal.classList.contains('active');
+    var shouldShow = isMobile() && !modalOpen;
+    mobileFixedCard.classList.toggle('show', shouldShow);
+    document.body.classList.toggle('has-mobile-fixed', shouldShow);
+  }
+
+  document.querySelectorAll('[data-open-quote]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      setTimeout(updateMobileBanner, 50);
+    });
+  });
+
+  var closeModalBtn=document.getElementById('closeModalBtn');
+  if(closeModalBtn){
+    closeModalBtn.addEventListener('click',function(){
+      setTimeout(updateMobileBanner, 80);
+    }, true);
+  }
+
+  if(modal){
+    modal.addEventListener('click',function(event){
+      if(event.target===modal){
+        setTimeout(updateMobileBanner, 80);
+      }
+    }, true);
+  }
+
+  document.addEventListener('keydown',function(event){
+    if(event.key==='Escape'){
+      setTimeout(updateMobileBanner, 80);
+    }
+  });
+
+  window.addEventListener('resize',updateMobileBanner);
+  setTimeout(updateMobileBanner, 250);
+  setTimeout(updateMobileBanner, 1200);
 });
 </script>
 
