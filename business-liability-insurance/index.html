@@ -974,17 +974,41 @@
       gap:12px;
     }
     .checklist-wide .check{
+      display:flex;
+      align-items:flex-start;
+      gap:14px;
+      width:100%;
+      min-width:0;
       background:#fff;
       border:1px solid var(--line);
       border-radius:18px;
-      padding:16px;
+      padding:18px;
       box-shadow:var(--shadow-soft);
+      color:var(--text);
+    }
+    .checklist-wide .check span{
+      display:block;
+      min-width:0;
+      color:var(--text);
+      font-size:15px;
+      line-height:1.55;
+      overflow-wrap:anywhere;
+    }
+    .checklist-wide .check strong{
+      color:var(--navy-2);
+      font-weight:900;
     }
     .checklist-wide .check b{
       width:30px;
       height:30px;
       flex:0 0 30px;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      background:var(--gold);
+      color:var(--navy-2);
       font-size:13px;
+      line-height:1;
     }
     .callout{
       margin-top:18px;
@@ -1020,9 +1044,76 @@
       font-size:13px;
     }
     @media(max-width:760px){
-      .checklist-wide{grid-template-columns:1fr}
+      #quote-checklist{
+        overflow:visible;
+        color-scheme:light;
+      }
+      #quote-checklist .section-head{
+        margin-bottom:22px;
+      }
+      .checklist-wide{
+        grid-template-columns:minmax(0,1fr);
+        gap:12px;
+        width:100%;
+      }
+      .checklist-wide .check{
+        width:100%;
+        min-width:0;
+        padding:16px;
+        gap:12px;
+        background:#fff!important;
+        color:#18314c!important;
+        border-color:#dfe8f2;
+      }
+      .checklist-wide .check span{
+        display:block!important;
+        visibility:visible!important;
+        opacity:1!important;
+        color:#18314c!important;
+        font-size:14px;
+        line-height:1.55;
+        white-space:normal;
+      }
+      .checklist-wide .check strong{
+        color:#07213D!important;
+      }
+      .checklist-wide .check b{
+        width:28px;
+        height:28px;
+        flex-basis:28px;
+        font-size:12px;
+      }
+      #quote-checklist .callout{
+        display:block;
+        width:100%;
+        margin-top:16px;
+        padding:16px;
+        color:#5d4a13!important;
+        background:#fff8e3!important;
+        font-size:14px;
+        line-height:1.55;
+        overflow-wrap:anywhere;
+      }
     }
 
+
+
+    @media(max-width:430px){
+      #quote-checklist .container{
+        width:min(100% - 24px,var(--max));
+      }
+      .checklist-wide .check{
+        padding:14px;
+        border-radius:16px;
+      }
+      .checklist-wide .check span{
+        font-size:13.5px;
+      }
+      #quote-checklist .callout{
+        border-radius:0 16px 16px 0;
+        font-size:13.5px;
+      }
+    }
 
     /* Gigi virtual assistant */
     .gigi-launcher{
