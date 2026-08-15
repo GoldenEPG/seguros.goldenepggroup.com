@@ -12,7 +12,6 @@
 
   <link rel="icon" type="image/png" href="/assets/Lux_Golden_EPG_Logo2026.png">
   <link rel="apple-touch-icon" href="/assets/Lux_Golden_EPG_Logo2026.png">
-  <link rel="preload" as="image" href="/assets/worker.png" fetchpriority="high">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Golden EPG Group">
@@ -796,6 +795,174 @@
       flex-wrap:wrap;
     }
 
+
+    /* Lead submission animation */
+    .lead-overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(7,33,61,.74);
+      backdrop-filter:blur(8px);
+      z-index:1000000;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      opacity:0;
+      visibility:hidden;
+      pointer-events:none;
+      transition:.28s ease;
+    }
+
+    .lead-overlay.show{
+      opacity:1;
+      visibility:visible;
+      pointer-events:auto;
+    }
+
+    .lead-overlay-card{
+      width:min(100%,520px);
+      background:#fff;
+      border-radius:30px;
+      padding:34px 28px;
+      text-align:center;
+      box-shadow:0 30px 80px rgba(0,51,102,.30);
+      border:1px solid rgba(255,255,255,.65);
+    }
+
+    .lead-overlay-logo{
+      width:106px;
+      height:auto;
+      object-fit:contain;
+      margin:0 auto 18px;
+      filter:drop-shadow(0 10px 20px rgba(0,51,102,.14));
+      background:transparent!important;
+      box-shadow:none!important;
+      border-radius:0!important;
+    }
+
+    .spin-logo{
+      animation:logoSpin 1.6s linear infinite;
+    }
+
+    @keyframes logoSpin{
+      from{transform:rotate(0deg)}
+      to{transform:rotate(360deg)}
+    }
+
+    .lead-overlay-state h3{
+      margin:0 0 10px;
+      color:var(--navy-2);
+      font-size:30px;
+      line-height:1.05;
+      letter-spacing:-.03em;
+    }
+
+    .lead-overlay-state p{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:16px;
+    }
+
+    .lead-progress{
+      width:100%;
+      height:12px;
+      border-radius:999px;
+      overflow:hidden;
+      background:#eef3f8;
+      border:1px solid #d9e3ee;
+      margin:0 auto 18px;
+    }
+
+    .lead-progress-bar{
+      width:40%;
+      height:100%;
+      border-radius:999px;
+      background:linear-gradient(90deg,var(--gold),var(--gold-2),var(--gold));
+      animation:progressMove 1.4s ease-in-out infinite;
+    }
+
+    @keyframes progressMove{
+      0%{transform:translateX(-110%);width:34%}
+      50%{transform:translateX(90%);width:46%}
+      100%{transform:translateX(250%);width:34%}
+    }
+
+    .lead-steps{
+      display:grid;
+      gap:8px;
+      text-align:left;
+      max-width:290px;
+      margin:0 auto;
+    }
+
+    .lead-steps span{
+      position:relative;
+      padding-left:18px;
+      color:#7a8b9d;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .lead-steps span::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:8px;
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:#c8d4e1;
+    }
+
+    .lead-steps span.active{
+      color:var(--navy-2);
+    }
+
+    .lead-steps span.active::before{
+      background:var(--gold);
+      box-shadow:0 0 0 6px rgba(255,195,0,.18);
+    }
+
+    .lead-check{
+      width:78px;
+      height:78px;
+      border-radius:50%;
+      margin:0 auto 16px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(135deg,var(--gold),var(--gold-2));
+      color:var(--navy-2);
+      font-size:38px;
+      font-weight:900;
+      box-shadow:0 18px 36px rgba(255,195,0,.22);
+    }
+
+    .is-submitting{
+      opacity:.72;
+      pointer-events:none;
+    }
+
+    @media(max-width:760px){
+      .lead-overlay-card{
+        padding:28px 20px;
+        border-radius:24px;
+      }
+
+      .lead-overlay-state h3{
+        font-size:25px;
+      }
+
+      .lead-overlay-state p{
+        font-size:14px;
+      }
+
+      .lead-overlay-logo{
+        width:92px;
+      }
+    }
+
+
     .sticky-mobile{display:none}
 
     @media(max-width:1050px){
@@ -1530,6 +1697,39 @@
     </div>
   </footer>
 
+
+  <div id="leadOverlay" class="lead-overlay" aria-hidden="true">
+    <div class="lead-overlay-card">
+      <img
+        id="leadOverlayLogo"
+        class="lead-overlay-logo spin-logo"
+        src="/assets/Lux_Golden_EPG_Logo2026.png"
+        alt="Golden EPG Group Logo">
+
+      <div id="leadOverlayLoading" class="lead-overlay-state">
+        <h3>Administrando su información</h3>
+        <p>Estamos procesando su solicitud. Esto tarda solo un momento.</p>
+
+        <div class="lead-progress" aria-hidden="true">
+          <div class="lead-progress-bar"></div>
+        </div>
+
+        <div class="lead-steps" aria-live="polite">
+          <span class="active">Validando datos</span>
+          <span>Enviando formulario</span>
+          <span>Confirmando solicitud</span>
+        </div>
+      </div>
+
+      <div id="leadOverlaySuccess" class="lead-overlay-state" style="display:none;">
+        <div class="lead-check">✓</div>
+        <h3>Información enviada correctamente</h3>
+        <p>En un momento, uno de nuestros agentes le contactará para ayudarle con sus opciones.</p>
+        <button type="button" class="btn btn-primary" id="closeLeadOverlayBtn">Volver al sitio</button>
+      </div>
+    </div>
+  </div>
+
   <div class="sticky-mobile" aria-label="Mobile contact actions">
     <a class="btn btn-dark" href="tel:7135305543">Call</a>
     <a class="btn btn-primary" href="#quote">Get Quote</a>
@@ -1600,15 +1800,70 @@
 
     const form = document.getElementById('businessLeadForm');
 
+    function showLeadOverlay(){
+      const overlay = document.getElementById('leadOverlay');
+      const loading = document.getElementById('leadOverlayLoading');
+      const success = document.getElementById('leadOverlaySuccess');
+      const logo = document.getElementById('leadOverlayLogo');
+
+      if(!overlay || !loading || !success || !logo) return;
+
+      loading.style.display = 'block';
+      success.style.display = 'none';
+      logo.style.display = 'block';
+      logo.classList.add('spin-logo');
+
+      overlay.classList.add('show');
+      overlay.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function showLeadSuccess(){
+      const loading = document.getElementById('leadOverlayLoading');
+      const success = document.getElementById('leadOverlaySuccess');
+      const logo = document.getElementById('leadOverlayLogo');
+
+      if(!loading || !success || !logo) return;
+
+      loading.style.display = 'none';
+      success.style.display = 'block';
+      logo.classList.remove('spin-logo');
+      logo.style.display = 'none';
+    }
+
+    function closeLeadOverlay(){
+      const overlay = document.getElementById('leadOverlay');
+
+      if(overlay){
+        overlay.classList.remove('show');
+        overlay.setAttribute('aria-hidden','true');
+      }
+
+      document.body.style.overflow = '';
+    }
+
+    function setSubmittingState(formEl,isSubmitting){
+      const submitBtn = formEl.querySelector('button[type="submit"]');
+
+      if(!submitBtn) return;
+
+      submitBtn.disabled = isSubmitting;
+      submitBtn.classList.toggle('is-submitting',isSubmitting);
+      submitBtn.dataset.originalText = submitBtn.dataset.originalText || submitBtn.innerHTML;
+      submitBtn.innerHTML = isSubmitting ? 'Sending...' : submitBtn.dataset.originalText;
+    }
+
+    const closeLeadOverlayBtn = document.getElementById('closeLeadOverlayBtn');
+
+    if(closeLeadOverlayBtn){
+      closeLeadOverlayBtn.addEventListener('click',closeLeadOverlay);
+    }
+
     form.addEventListener('submit', async function(e){
       e.preventDefault();
 
-      const btn = form.querySelector('button[type="submit"]');
-      const original = btn.textContent;
-      btn.disabled = true;
-      btn.textContent = 'Sending...';
-
       const data = new FormData(form);
+
       const payload = {
         fullname:data.get('fullname') || '',
         phone:data.get('phone') || '',
@@ -1618,16 +1873,41 @@
         message:data.get('message') || ''
       };
 
-      const ok = await submitToHubSpot(payload);
+      setSubmittingState(form,true);
+      showLeadOverlay();
 
-      btn.disabled = false;
-      btn.textContent = original;
+      const steps = document.querySelectorAll('.lead-steps span');
+      let stepIndex = 0;
+
+      const stepTimer = setInterval(function(){
+        steps.forEach(function(step,index){
+          step.classList.toggle('active',index === stepIndex);
+        });
+
+        stepIndex = (stepIndex + 1) % Math.max(steps.length,1);
+      },700);
+
+      const minimumDelay = new Promise(function(resolve){
+        setTimeout(resolve,2200);
+      });
+
+      const submitPromise = submitToHubSpot(payload);
+      const results = await Promise.all([minimumDelay,submitPromise]);
+      const ok = results[1];
+
+      clearInterval(stepTimer);
+      setSubmittingState(form,false);
 
       if(ok){
         form.reset();
-        alert('Thank you. Your request was sent successfully. A licensed agent will contact you.');
-        if(window.fbq) fbq('track','Lead');
+
+        if(window.fbq){
+          fbq('track','Lead');
+        }
+
+        showLeadSuccess();
       }else{
+        closeLeadOverlay();
         alert('We could not send your request. Please call 713-530-5543 or try again.');
       }
     });
